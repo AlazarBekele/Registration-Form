@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import WelcomePage
+from .models import RegisterUpload, WelcomePage
+from .form import StudentForms
+from django.contrib import messages
 
 # Create your views here.
 
@@ -17,4 +19,16 @@ def index (request):
 
 def register (request):
 
-  return render (request, 'MainRegister.html')
+  form = StudentForms(request.POST or None)
+
+  if request.method == 'POST':
+    if form.is_valid():
+      form.save()
+      messages.success(request, 'Successfully Registered!')
+      form = RegisterUpload()
+
+  context = {
+    'form' : form
+  }
+
+  return render (request, 'MainRegister.html', context=context)
