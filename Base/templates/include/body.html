@@ -1,19 +1,25 @@
-<div>
+<div style="height: 100vh; display: flex; align-items: center; justify-content: center;">
   
-  <div>
+  <div class="AllContainer">
 
     <div>
-      <img width="80" height="80" src="https://img.icons8.com/officel/80/athlete.png" alt="athlete"/>
+      <img style="width: 600px;" src="https://www.pngall.com/wp-content/uploads/12/Illustration-PNG-Free-Image.png" alt="">
     </div>
 
-    <div>
+    <div class="containMain">
 
       <form method="post">
 
         {% csrf_token %}
 
-        {{form.as_p}}
+        {% for message in messages %}
+          <div class="alert alert-success" role="alert">
+            {{message}}
+          </div> 
+        {% endfor %}
 
+        {{form.as_p}}
+        <button class="btn btn-primary" type="submit">submit</button>
       </form>
 
     </div>

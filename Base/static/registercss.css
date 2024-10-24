@@ -1,0 +1,12 @@
+body {
+  height: 100vh;
+}
+.containMain {
+  width: 400px;
+}
+.AllContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  column-gap: 150px;
+}

@@ -25,7 +25,7 @@ def register (request):
     if form.is_valid():
       form.save()
       messages.success(request, 'Successfully Registered!')
-      form = RegisterUpload()
+      form = StudentForms()
 
   context = {
     'form' : form
